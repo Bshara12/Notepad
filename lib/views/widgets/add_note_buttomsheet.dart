@@ -6,14 +6,21 @@ class Addnote extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
+    return const Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16),
       child: Column(
         children: [
           SizedBox(
             height: 32,
           ),
-          customTextField()
+          customTextField(
+            hint: 'title',
+          ),
+          SizedBox(height: 16,),
+          customTextField(
+            hint: 'comtent',
+            maxlines: 5,
+          ),
         ],
       ),
     );

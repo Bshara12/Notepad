@@ -1,31 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:notepad/views/nots_view.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const NotesApp());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  // This widget is the root of your application.
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      home: NotesApp(),
-    );
-  }
-}
-
-class NotesApp extends StatefulWidget {
+class NotesApp extends StatelessWidget {
   const NotesApp({super.key});
 
   @override
-  State<NotesApp> createState() => _NotesAppState();
-}
-
-class _NotesAppState extends State<NotesApp> {
-  @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData.dark(),
+      home: const NotesView(),
+    );
   }
 }

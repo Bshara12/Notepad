@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:notepad/views/widgets/add_note_buttomsheet.dart';
 import 'package:notepad/views/widgets/custom_note_item.dart';
 import 'package:notepad/views/widgets/notes_list_view.dart';
 
@@ -8,6 +9,17 @@ class NotesView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {
+            showModalBottomSheet(
+              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+                context: context,
+                builder: (context) {
+                  return Addnote();
+                });
+          },
+          child: Icon(Icons.add),
+        ),
         appBar: AppBar(
           title: Text(
             'Notes',
@@ -31,12 +43,10 @@ class NotesView extends StatelessWidget {
           ],
         ),
         body: Container(
-          child: 
-              Padding(
-                padding: const EdgeInsets.all( 24),
-                child:NotesListView(),
-              ),
+          child: Padding(
+            padding: const EdgeInsets.all(24),
+            child: NotesListView(),
+          ),
         ));
   }
 }
-
